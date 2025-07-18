@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Recipe Generator</title>
+  <link rel="stylesheet" href="Tuesday_style.css">
+</head>
+<body>
+  <header>
+<nav class="navbar">
+  <div class="logo">A² Kitchen</div>
+  
+  <!-- Hamburger icon -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    ☰
+  </div>
+  <!-- Navigation links -->
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#we">We</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#addrecipe">Add Recipe</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#admin-login">Admin</a></li>
+  </ul>
+</nav>
+
+  </header>
+<main>
+
+      <!-- Hero Section -->
+    <section id="we" class="intro-banner">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1 class="typing-text">Welcome to <br><span>A² Kitchen</span></h1>
+        </div>
+        <div class="intro-img">
+          <img src="us.jpeg" alt="SmartCook Logo" class="our_img" />
+        </div>
+      </div>
+    </section>
+
+        <!-- Home Section -->
+        <section id="home" class="section home">
+          <div class="hero">
+            <h1>Cook Smarter, Not Harder!</h1>
+            <p>Enter ingredients you have, and get delicious recipe ideas instantly!</p>
+            <input type="text" id="ingredient-input" placeholder="e.g., tomato, cheese, pasta" />
+            <button onclick="generateRecipe()">Generate Recipe</button>
+            <div id="recipe-output"></div>
+            <div style="margin-top: 20px;">
+            <button onclick="scrollToIngredients()">🔙 Back to Ingredients</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+          <h2>About Us</h2>
+          <p>Welcome to A² Kitchen – your smart companion in everyday cooking! We believe great meals start with simple ingredients and a dash of creativity. 
+            SmartCook helps home cooks discover recipes using what’s in the kitchen. No more waste! Whether you’re a beginner or an experienced home chef, our 
+            tool inspires you to make the most of what you already have.We’re passionate about reducing food waste and making cooking simple, fun, and stress-free. 
+            From quick snacks to wholesome dinners, A² Kitchen offers personalized recipe ideas that save time, money, and effort. No need for fancy ingredients or complicated steps — 
+            just smart cooking with real results.Join our growing community of kitchen explorers who are transforming their daily cooking into a smarter, more sustainable experience. 
+            With A² Kitchen, you're never stuck wondering what to cook again — you're just one click away from something delicious.
+          </p>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section team">
+        <div class="team">
+            <h1>Our<span>Team</span></h1>
+            <div class="team_box">
+                <div class="profile">
+                    <img src="">
+                    <div class="info">
+                        <h2 class="name">Chef</h2>
+                        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="team_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile">
+                    <img src="image/chef2.png">
+                    <div class="info">
+                        <h2 class="name">Chef</h2>
+                        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="team_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile">
+                    <img src="image/chef3.jpg">
+                    <div class="info">
+                        <h2 class="name">Chef</h2>
+                        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="team_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile">
+                    <img src="image/chef4.jpg">
+                    <div class="info">
+                        <h2 class="name">Chef</h2>
+                        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="team_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile">
+                    <img src="image/chef4.jpg">
+                    <div class="info">
+                        <h2 class="name">Chef</h2>
+                        <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="team_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Add Recipe Section -->
+        <section id="addrecipe" class="section">
+          <h2>Add a New Recipe</h2>
+          <form id="new-recipe-form" onsubmit="handleAddRecipe(event)">
+            <input type="text" id="new-name" placeholder="Recipe Name" required>
+            <input type="text" id="new-ingredients" placeholder="Ingredients (comma separated)" required>
+            <textarea id="new-instructions" placeholder="Instructions" required></textarea>
+            <input type="url" id="new-image" placeholder="Image URL (optional)">
+            <button type="submit">Add Recipe</button>
+          </form>
+          <p id="add-status"></p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+          <h2>Contact Us</h2>
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="Email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </section>
+
+        <!-- Admin Login -->
+        <section id="admin-login" class="section">
+          <h2>Admin Login</h2>
+          <input type="text" id="login-username" placeholder="Username" required>
+          <input type="password" id="login-password" placeholder="Password" required>
+          <button onclick="adminLogin()">Login</button>
+          <p id="login-status" style="color:red;"></p>
+        </section>
+
+        <!-- My Recipes (Admin View) -->
+        <section id="my-recipes-section" style="display:none;">
+          <h2>My Added Recipes (Admin View)</h2>
+          <div id="added-recipes-output"></div>
+          <button onclick="clearAllRecipes()">🧹 Clear All Recipes</button>
+          <button onclick="exportAsJSON()">⬇️ Export as JSON</button>
+          <button onclick="exportAsCSV()">⬇️ Export as CSV</button>
+          <div id="saved-recipes-list"></div>
+        </section>
+  </main>
+
+<!-- Footer -->
+  <footer style="display: contents; align-items: center;">
+    <p>&copy;Thank You.....!! <br> FULL STACK PROJECT  </p>
+  </footer>
+<script src="recipes_details.js"></script>
+<script src="main1.js"></script>
+</body>
+</html>
